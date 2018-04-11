@@ -3,3 +3,6 @@ export { default as loadDemo1 } from 'bundle-loader?lazy&name=[name]!@/pages/dem
 export { default as loadDemo2 } from 'bundle-loader?lazy&name=[name]!@/pages/demo2'
 export { default as loadDemo3 } from 'bundle-loader?lazy&name=[name]!@/pages/demo3'
 export { default as loadDemo4 } from 'bundle-loader?lazy&name=[name]!@/pages/demo4'
+export { default as loadDemo5 } from 'bundle-loader?lazy&name=[name]!@/pages/demo5'
+export { default as loadDemo6 } from 'bundle-loader?lazy&name=[name]!@/pages/demo6'
+export { default as loadLogin } from 'bundle-loader?lazy&name=[name]!@/pages/login'

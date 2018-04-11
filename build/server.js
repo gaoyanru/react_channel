@@ -7,7 +7,7 @@ const app = express();
 const config = require('../webpack.config.js');
 const compiler = webpack(config);
 
-const proxyUrl = 'https://x-agent.i-counting.cn/';
+const proxyUrl = 'http://123.56.31.133:8082';
 
 app.use('/api', proxy({target: proxyUrl, changeOrigin: true}));
 app.use('/infocenter', proxy({target: proxyUrl, changeOrigin: true}));

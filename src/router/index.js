@@ -35,6 +35,9 @@ const router = () => (
           <Route path='/demo2' component={modules.Demo2}/>
           <Route path='/demo3' component={modules.Demo3}/>
           <Route path='/demo4' component={modules.Demo4}/>
+          <Route path='/demo5' component={modules.Demo5}/>
+          <Route path='/demo6' component={modules.Demo6}/>
+          <Route path='/login' component={modules.Login}/>
           <Main>
             {
               configs.map((item, index) => {
