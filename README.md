@@ -1,9 +1,9 @@
 # 简介
-pilipa 做账主系统，主要由react+redux+stylus+webpack+antd+typescript构成
+pilipa 中心运营系统，主要由react+redux+stylus+webpack+antd+typescript构成
 
 # 安装
 - npm install tyarn -g
-- tyarn install 
+- tyarn install
 
 # 启动
 npm run dev || node build/server.js

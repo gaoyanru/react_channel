@@ -22,7 +22,7 @@ const isPro = process.env.NODE_ENV === 'production'
 const Router = isPro ? BrowserRouter : HashRouter
 // const Router = HashRouter
 
-const basename = isPro ? '/v2/' : '/'
+const basename = '/'
 const configs = [
 ]
 const router = () => (
@@ -31,13 +31,10 @@ const router = () => (
       <App>
         <Switch>
           <Route path='/' exact={true} component={modules.Index}/>
-          <Route path='/demo1' component={modules.Demo1}/>
-          <Route path='/demo2' component={modules.Demo2}/>
-          <Route path='/demo3' component={modules.Demo3}/>
-          <Route path='/demo4' component={modules.Demo4}/>
           <Route path='/demo5' component={modules.Demo5}/>
           <Route path='/demo6' component={modules.Demo6}/>
           <Route path='/login' component={modules.Login}/>
+          <Route path='/main' component={modules.Main}/>
           <Main>
             {
               configs.map((item, index) => {
