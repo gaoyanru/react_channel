@@ -24,6 +24,7 @@ const Router = isPro ? BrowserRouter : HashRouter
 
 const basename = '/'
 const configs = [
+  { path: '/usersAccount', component: modules.UsersAccount }
 ]
 const router = () => (
   <Provider store={store}>
@@ -35,6 +36,7 @@ const router = () => (
           <Route path='/demo6' component={modules.Demo6}/>
           <Route path='/login' component={modules.Login}/>
           <Route path='/main' component={modules.Main}/>
+          // <Route path='/usersAccount' component={modules.UsersAccount}/>
           <Main>
             {
               configs.map((item, index) => {

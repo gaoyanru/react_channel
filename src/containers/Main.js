@@ -6,6 +6,7 @@ import ClassNames from 'classnames'
 import PageHeader from '@/components/common/PageHeader'
 import TableContent from '@/pages/tableContent'
 import GlobalHeader from '@/components/common/globalHeader'
+import LeftMenu from '@/components/common/leftMenu'
 const { Header, Sider, Content } = Layout
 
 class Main extends React.Component {
@@ -44,20 +45,7 @@ class Main extends React.Component {
             <Link to="/">
             </Link>
           </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
-              <Icon type="user" />
-              <span>nav 1</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>nav 2</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span>nav 3</span>
-            </Menu.Item>
-          </Menu>
+          <LeftMenu />
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>

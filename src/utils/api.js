@@ -8,3 +8,7 @@ export const fetchWechatUserInfo = () => {
 export const requestLogin = (params) => {
   return http('/api/security/login', 'post', params)
 }
+// logout
+export const logout = (params) => {
+  return http('/api/security/logout', 'delete')
+}

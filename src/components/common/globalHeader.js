@@ -1,7 +1,9 @@
 import React from 'react'
 import styles from '@/stylus/main'
 import { Menu, Icon, Dropdown, Avatar } from 'antd'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+import { logout } from '@/utils/api'
+
 export default class GlobalHeader extends React.Component {
   constructor (props) {
     super(props)
@@ -11,13 +13,22 @@ export default class GlobalHeader extends React.Component {
     const { collapsed, onCollapse } = this.props
     onCollapse(!collapsed)
   }
+  onMenuClick () {
+    logout().then((res) => {
+      if (res.status) {
+        return (
+          <Redirect to={'/login'} />
+        )
+      }
+    })
+  }
   render () {
     const {
       currentUser,
       collapsed
     } = this.props
     const menu = (
-      <Menu className={styles.menu} selectedKeys={[]} trigger={['click']}>
+      <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick.bind(this)}>
         <Menu.Item>
           <Link to="/main/user_my">
             <Icon type="user" />

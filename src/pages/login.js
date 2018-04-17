@@ -76,7 +76,7 @@ class Login extends React.Component {
                       <CInput
                         prefix={<Icon type="lock"/>}
                         placeholder="请输入密码"
-                        type="text"
+                        type="password"
                         size="large"
                       />
                     )}

@@ -1,6 +1,6 @@
 import React from 'react'
 // import SearchForm from '@/components/common/searchForm'
-import { Card, Row, Col, Form, Input, Select, Icon, Button, Dropdown, InputNumber } from 'antd'
+import { Card, Row, Col, Form, Input, Select, Icon, Button, Dropdown, InputNumber, Table } from 'antd'
 import styles from '@/stylus/tableContent'
 const FormItem = Form.Item
 class TableCon extends React.Component {
@@ -32,12 +32,12 @@ class TableCon extends React.Component {
       <Form onSubmit={this.handleSearch.bind(this)} layout="inline">
         <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
           <Col md={8} sm={24}>
-            <FormItem label="规则编号">
+            <FormItem label="客户姓名">
               {getFieldDecorator('no')(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>
           <Col md={8} sm={24}>
-            <FormItem label="使用状态">
+            <FormItem label="状态">
               {getFieldDecorator('status')(
                 <Select placeholder="请选择" style={{ width: '100%' }}>
                   <Option value="0">关闭</Option>
@@ -84,8 +84,13 @@ class TableCon extends React.Component {
             </FormItem>
           </Col>
           <Col md={8} sm={24}>
-            <FormItem label="调用次数">
+            <FormItem label="年龄">
               {getFieldDecorator('number')(<InputNumber style={{ width: '100%' }} />)}
+            </FormItem>
+          </Col>
+          <Col md={8} sm={24}>
+            <FormItem label="地址">
+              {getFieldDecorator('no')(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>
         </Row>
@@ -109,11 +114,34 @@ class TableCon extends React.Component {
     return this.state.expandForm ? this.renderAdvancedForm() : this.renderSimpleForm()
   }
   render () {
+    const dataSource = [{
+      key: '1',
+      name: '胡彦斌',
+      age: 32,
+      address: '西湖区湖底公园1号'
+    }, {
+      key: '2',
+      name: '胡彦祖',
+      age: 42,
+      address: '西湖区湖底公园1号'
+    }]
+    const columns = [{
+      title: '姓名',
+      dataIndex: 'name'
+    }, {
+      title: '年龄',
+      dataIndex: 'age'
+    }, {
+      title: '住址',
+      dataIndex: 'address'
+    }]
     return (
       <Card bordered={false}>
         <div className={styles.tableList}>
           <div className={styles.tableListForm}>{this.renderForm()}</div>
-          <div style={{ height: '500px' }}>qq</div>
+          <div style={{ height: '500px' }}>
+            <Table dataSource={dataSource} columns={columns} />
+          </div>
         </div>
       </Card>
     )
