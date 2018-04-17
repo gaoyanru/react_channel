@@ -4,7 +4,6 @@ import { Layout, Menu, Icon, Dropdown, Avatar, Breadcrumb } from 'antd'
 import { Link } from 'react-router-dom'
 import ClassNames from 'classnames'
 import PageHeader from '@/components/common/PageHeader'
-import TableContent from '@/pages/tableContent'
 import GlobalHeader from '@/components/common/globalHeader'
 import LeftMenu from '@/components/common/leftMenu'
 const { Header, Sider, Content } = Layout
@@ -32,6 +31,7 @@ class Main extends React.Component {
     const currentUser = {
       RealName: 'momo.zxy'
     }
+    console.log(this.props.children, 'children')
     return (
       <Layout>
         <Sider
@@ -57,7 +57,7 @@ class Main extends React.Component {
           </Header>
           <PageHeader/>
           <Content style={{ margin: '24px 24px 0', height: '100%' }}>
-            <TableContent/>
+            {this.props.children}
           </Content>
         </Layout>
       </Layout>

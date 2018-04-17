@@ -24,6 +24,7 @@ const Router = isPro ? BrowserRouter : HashRouter
 
 const basename = '/'
 const configs = [
+  { path: '/', component: modules.Index, exact: true },
   { path: '/usersAccount', component: modules.UsersAccount }
 ]
 const router = () => (
@@ -31,17 +32,14 @@ const router = () => (
     <Router basename={basename}>
       <App>
         <Switch>
-          <Route path='/' exact={true} component={modules.Index}/>
           <Route path='/demo5' component={modules.Demo5}/>
           <Route path='/demo6' component={modules.Demo6}/>
           <Route path='/login' component={modules.Login}/>
-          <Route path='/main' component={modules.Main}/>
-          // <Route path='/usersAccount' component={modules.UsersAccount}/>
           <Main>
             {
               configs.map((item, index) => {
                 if (!item.disable) {
-                  return <Route key={'router-' + index} path={item.path} component={item.component}/>
+                  return <Route key={'router-' + index} path={item.path} component={item.component} exact={item.exact}/>
                 }
               })
             }
