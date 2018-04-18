@@ -22,7 +22,8 @@ class Search extends React.Component {
       }
     })
   }
-  addNew () {
+  handeladdNew (e) {
+    e.preventDefault()
     this.props.addNew()
   }
   handleFormReset () {
@@ -111,9 +112,9 @@ class Search extends React.Component {
                 <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset.bind(this)}>
                   重置
                 </Button>
-                <Button type="primary" style={{ marginLeft: 8 }} onClick={this.addNew.bind(this)}>
+                {this.props.isAddUser && <Button type="primary" style={{ marginLeft: 8 }} onClick={this.handeladdNew.bind(this)}>
                   添加员工
-                </Button>
+                </Button>}
                 {
                   this.nodes.length > 2 && (
                     !this.state.expandForm ? (
@@ -137,6 +138,7 @@ class Search extends React.Component {
 }
 Search.propTypes = {
   paramKeys: PropTypes.array.isRequired,
-  onSearch: PropTypes.func
+  onSearch: PropTypes.func,
+  isAddUser: PropTypes.bool
 }
 export default Form.create()(Search)

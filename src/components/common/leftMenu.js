@@ -23,7 +23,11 @@ export default class LeftMenu extends React.Component {
           <Menu.Item key="4">部门</Menu.Item>
           <Menu.Item key="5">角色</Menu.Item>
           <Menu.Item key="6">权限策略</Menu.Item>
-          <Menu.Item key="7">新增策略</Menu.Item>
+          <Menu.Item key="7">
+            <Link to="/usersAddStrategy">
+              <span>新增策略</span>
+            </Link>
+          </Menu.Item>
         </SubMenu>
       </Menu>
     )

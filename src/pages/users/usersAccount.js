@@ -20,7 +20,20 @@ class UsersAccount extends React.Component {
     console.log(record, 'record')
   }
   deleteUser (record) {
-    console.log(record, 'record')
+    const modal = Modal.show({
+      content: (
+        <div>确定要删除员工吗？</div>
+      ),
+      title: '',
+      mask: true,
+      onOk: () => {
+        console.log('确认删除', '确定')
+        modal.hide()
+      },
+      onCancel: () => {
+        modal.hide()
+      }
+    })
   }
   accreditUser (record) {
     console.log(record, 'record')
@@ -109,6 +122,7 @@ class UsersAccount extends React.Component {
               paramKeys={[0]}
               onSearch={this.onSearch.bind(this)}
               addNew={this.addNew.bind(this)}
+              isAddUser={true}
             />
           </div>
           <div style={{ height: '500px' }}>

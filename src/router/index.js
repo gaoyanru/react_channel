@@ -25,7 +25,8 @@ const Router = isPro ? BrowserRouter : HashRouter
 const basename = '/'
 const configs = [
   { path: '/', component: modules.Index, exact: true },
-  { path: '/usersAccount', component: modules.UsersAccount }
+  { path: '/usersAccount', component: modules.UsersAccount },
+  { path: '/usersAddStrategy', component: modules.UsersAddStrategy }
 ]
 const router = () => (
   <Provider store={store}>
