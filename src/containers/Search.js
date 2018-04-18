@@ -22,6 +22,9 @@ class Search extends React.Component {
       }
     })
   }
+  addNew () {
+    this.props.addNew()
+  }
   handleFormReset () {
     this.props.form.resetFields()
   }
@@ -47,8 +50,8 @@ class Search extends React.Component {
     const { paramKeys } = this.props
     const { expandForm } = this.state
     const Rows = [
-      <FormItem label="客户姓名">
-        {getFieldDecorator('filed[0]')(<Input placeholder="请输入" />)}
+      <FormItem label="">
+        {getFieldDecorator('filed[0]')(<Input placeholder="搜索用户名" />)}
       </FormItem>,
       <FormItem label="状态">
         {getFieldDecorator('filed[1]')(
@@ -107,6 +110,9 @@ class Search extends React.Component {
                 </Button>
                 <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset.bind(this)}>
                   重置
+                </Button>
+                <Button type="primary" style={{ marginLeft: 8 }} onClick={this.addNew.bind(this)}>
+                  添加员工
                 </Button>
                 {
                   this.nodes.length > 2 && (

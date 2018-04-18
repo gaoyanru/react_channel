@@ -35,7 +35,7 @@ class TableCon extends React.Component {
         <div className={styles.tableList}>
           <div className={styles.tableListForm}>
             <Search
-              paramKeys={[4, 3, 2, 1, 0, 5]}
+              paramKeys={[4, 3]}
               onSearch={this.onSearch.bind(this)}
             />
           </div>

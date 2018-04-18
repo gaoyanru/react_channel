@@ -3,23 +3,18 @@ import { Card, Row, Col, Form, Input, Button, Table, Divider } from 'antd'
 import styles from '@/stylus/tableContent'
 import Modal from '@/components/common/modal'
 import UserInfo from '@/containers/users/userInfo'
+import Search from '@/containers/Search'
 const FormItem = Form.Item
 class UsersAccount extends React.Component {
   constructor (props) {
     super(props)
-    this.handleSearch = this.handleSearch.bind(this)
     // this.editUser = this.editUser.bind(this)
     this.deleteUser = this.deleteUser.bind(this)
     this.accreditUser = this.accreditUser.bind(this)
     this.addNew = this.addNew.bind(this)
   }
-  handleSearch (e) {
-    e.preventDefault()
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('提交查询')
-      }
-    })
+  onSearch (res) {
+    console.log(res)
   }
   editUser (record) {
     console.log(record, 'record')
@@ -37,10 +32,10 @@ class UsersAccount extends React.Component {
           ref={userform => { this.userform = userform }}
           user={{}}
           isNew={true}
-          isModal={true}
         />
       ),
       title: '新增员工',
+      mask: true,
       onOk: () => {
         // ref 就能获取组件的信息了
         console.log(this.userform, '确定')
@@ -50,11 +45,13 @@ class UsersAccount extends React.Component {
             modal.hide()
           }
         })
+      },
+      onCancel: () => {
+        modal.hide()
       }
     })
   }
   render () {
-    const { getFieldDecorator } = this.props.form
     const dataSource = [{
       UserId: 1,
       UserName: 'liubing',
@@ -108,23 +105,11 @@ class UsersAccount extends React.Component {
       <Card bordered={false}>
         <div className={styles.tableList}>
           <div className={styles.tableListForm}>
-            <Form onSubmit={this.handleSearch} layout="inline">
-              <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
-                <Col md={4} sm={24}>
-                  <FormItem>
-                    {getFieldDecorator('UserName')(<Input placeholder="搜索用户名" />)}
-                  </FormItem>
-                </Col>
-                <Col md={20} sm={24}>
-                  <Button type="primary" htmlType="submit">
-                    查询
-                  </Button>
-                  <Button style={{ float: 'right' }} type="primary" onClick={this.addNew}>
-                    添加员工
-                  </Button>
-                </Col>
-              </Row>
-            </Form>
+            <Search
+              paramKeys={[0]}
+              onSearch={this.onSearch.bind(this)}
+              addNew={this.addNew.bind(this)}
+            />
           </div>
           <div style={{ height: '500px' }}>
             <Table
@@ -140,4 +125,4 @@ class UsersAccount extends React.Component {
     )
   }
 }
-export default Form.create()(UsersAccount)
+export default UsersAccount

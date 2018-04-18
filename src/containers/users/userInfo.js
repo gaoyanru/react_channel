@@ -1,5 +1,8 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd'
+import styles from '@/stylus/modal'
+import PropTypes from 'prop-types'
+import DepartmentSelect from '@/containers/users/departmentSelect'
 const FormItem = Form.Item
 
 class UserInfo extends React.Component {
@@ -34,7 +37,7 @@ class UserInfo extends React.Component {
     const props = this.props
     const { getFieldDecorator } = props.form
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} className={styles['user-info']}>
         <FormItem
           {...formItemLayout}
           label="姓名"
@@ -92,8 +95,25 @@ class UserInfo extends React.Component {
             <Input style={{ width: '100%' }} />
           )}
         </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="部门"
+        >
+          {getFieldDecorator('DepartmentCenterId', {
+            rules: [{
+              required: true, message: '请选择部门'
+            }],
+            initialValue: props.user.DepartmentCenterId
+          })(
+            <DepartmentSelect/>
+          )}
+        </FormItem>
       </Form>
     )
   }
+}
+UserInfo.propTypes = {
+  user: PropTypes.object.isRequired,
+  isNew: PropTypes.bool
 }
 export default Form.create()(UserInfo)
