@@ -8,6 +8,8 @@ interface MyOption {
   zIndex?: number
   mask?: boolean
   width?: number
+  onOk?: () => void
+  onCancel?: () => void
   okText?: string
   cancelText?: string
   maskClosable?: boolean
@@ -30,15 +32,8 @@ class CustomModal implements MyOption {
   constructor (option: MyOption) {
     document.body.appendChild(this.el)
     this.visible = true
-    this.onOk = () => {
-      if (option.confirm) {
-        option.confirm()
-      }
-      this.hide()
-    }
-    this.onCancel = () => {
-      this.hide()
-    }
+    this.onOk = option.onOk || null
+    this.onCancel = option.onCancel || null
     this.title = option.title || '系统提醒'
     this.zIndex = option.zIndex || this.zIndex
     this.mask = option.mask !== undefined ? option.mask : !CustomModal.firstLoad

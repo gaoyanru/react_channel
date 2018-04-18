@@ -32,10 +32,24 @@ class UsersAccount extends React.Component {
   }
   addNew () {
     const modal = Modal.show({
-      content: <UserInfo wrappedComponentRef={userform => { this.userform = userform }} user={{}} isNew={true} isModal={true}/>,
+      content: (
+        <UserInfo
+          ref={userform => { this.userform = userform }}
+          user={{}}
+          isNew={true}
+          isModal={true}
+        />
+      ),
       title: '新增员工',
       onOk: () => {
-        console.log('确定')
+        // ref 就能获取组件的信息了
+        console.log(this.userform, '确定')
+        this.userform.validateFields((err, values) => {
+          if (!err) {
+            console.log(values)
+            modal.hide()
+          }
+        })
       }
     })
   }
