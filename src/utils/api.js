@@ -16,3 +16,6 @@ export const logout = () => {
 export const getAllDepartments = () => {
   return http('/api/departmentscenter')
 }
+export const fetchUsersAccount = (payload) => {
+  return http('/api/users', payload)
+}

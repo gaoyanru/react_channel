@@ -1,9 +1,11 @@
 import React from 'react'
 import { Card, Row, Col, Form, Input, Button, Table, Divider } from 'antd'
+import { connect } from 'react-redux'
 import styles from '@/stylus/tableContent'
 import Modal from '@/components/common/modal'
 import UserInfo from '@/containers/users/userInfo'
 import Search from '@/containers/Search'
+import { fetchListAction } from '@/actions/usersAccount'
 const FormItem = Form.Item
 class UsersAccount extends React.Component {
   constructor (props) {
@@ -12,6 +14,8 @@ class UsersAccount extends React.Component {
     this.deleteUser = this.deleteUser.bind(this)
     this.accreditUser = this.accreditUser.bind(this)
     this.addNew = this.addNew.bind(this)
+    console.log(this.props, 'props')
+    this.props.dispatch(fetchListAction())
   }
   onSearch (res) {
     console.log(res)
@@ -139,4 +143,5 @@ class UsersAccount extends React.Component {
     )
   }
 }
-export default UsersAccount
+export default connect()(UsersAccount)
+// export default UsersAccount
