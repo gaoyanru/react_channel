@@ -31,6 +31,10 @@ class Main extends React.Component {
     const currentUser = {
       RealName: 'momo.zxy'
     }
+    const menuList = {
+      menuParent: '用户',
+      children: '账号'
+    }
     console.log(this.props.children, 'children')
     return (
       <Layout>
@@ -55,7 +59,7 @@ class Main extends React.Component {
               onCollapse={this.handleMenuCollapse}
             />
           </Header>
-          <PageHeader/>
+          <PageHeader menu={menuList}/>
           <Content style={{ margin: '24px 24px 0', height: '100%' }}>
             {this.props.children}
           </Content>
