@@ -24,6 +24,8 @@ $(document).ajaxComplete((a, b, c) => {
 })
 $(document).ajaxError((event, response, settings) => {
   let msgConf = null
+  console.log(event, response, 'error')
+  let responseJSON = response.responseJSON
   switch (response.statusText) {
   case 'Unauthorized':
     break
@@ -40,9 +42,16 @@ $(document).ajaxError((event, response, settings) => {
     }
     break
   default:
-    msgConf = {
-      title: '请求出错',
-      message: response.statusText
+    if (responseJSON instanceof Object) {
+      msgConf = {
+        title: '请求出错',
+        message: response.responseJSON.message
+      }
+    } else {
+      msgConf = {
+        title: '请求出错',
+        message: '原因未知'
+      }
     }
     break
   }
@@ -63,6 +72,9 @@ const http = (url, type, config = {}) => {
   const extension = config.extension || {}
   delete config.extension
   const data = config.data || config || {}
+  config.headers = Object.assign(config.headers || {}, {
+    Authorize: sessionStorage.getItem('token')
+  })
   const headers = config.headers || undefined
   let ajaxConfig = {
     url: url,
