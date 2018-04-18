@@ -6,8 +6,8 @@ class PageHeader extends React.Component {
     return (
       <div className={styles.header_page}>
         <Breadcrumb className={styles.mt_16}>
-          <Breadcrumb.Item>我的客户</Breadcrumb.Item>
-          <Breadcrumb.Item>客户</Breadcrumb.Item>
+          <Breadcrumb.Item>{this.props.menu.menuParent}</Breadcrumb.Item>
+          <Breadcrumb.Item>{this.props.menu.children}</Breadcrumb.Item>
         </Breadcrumb>
       </div>
     )
