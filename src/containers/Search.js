@@ -113,7 +113,7 @@ class Search extends React.Component {
                   重置
                 </Button>
                 {this.props.isAddUser && <Button type="primary" style={{ marginLeft: 8 }} onClick={this.handeladdNew.bind(this)}>
-                  添加员工
+                  {this.props.title}
                 </Button>}
                 {
                   this.nodes.length > 2 && (
@@ -139,6 +139,7 @@ class Search extends React.Component {
 Search.propTypes = {
   paramKeys: PropTypes.array.isRequired,
   onSearch: PropTypes.func,
-  isAddUser: PropTypes.bool
+  isAddUser: PropTypes.bool,
+  title: PropTypes.string
 }
 export default Form.create()(Search)

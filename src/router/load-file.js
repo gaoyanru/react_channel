@@ -4,4 +4,4 @@ export { default as loadDemo6 } from 'bundle-loader?lazy&name=[name]!@/pages/dem
 export { default as loadLogin } from 'bundle-loader?lazy&name=[name]!@/pages/login'
 export { default as loadMain } from 'bundle-loader?lazy&name=[name]!@/containers/Main'
 export { default as loadUsersAccount } from 'bundle-loader?lazy&name=[name]!@/pages/users/usersAccount'
-export { default as loadUsersAddStrategy } from 'bundle-loader?lazy&name=[name]!@/pages/users/usersAddStrategy'
+export { default as loadUsersRoles } from 'bundle-loader?lazy&name=[name]!@/pages/users/usersRoles'

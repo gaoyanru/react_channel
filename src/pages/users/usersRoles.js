@@ -7,7 +7,7 @@ import UserInfo from '@/containers/users/userInfo'
 import Search from '@/containers/Search'
 import { fetchListAction } from '@/actions/usersAccount'
 const FormItem = Form.Item
-class UsersAccount extends React.Component {
+class UsersRoles extends React.Component {
   constructor (props) {
     super(props)
     // this.editUser = this.editUser.bind(this)
@@ -51,7 +51,7 @@ class UsersAccount extends React.Component {
           isNew={true}
         />
       ),
-      title: '新增员工',
+      title: '新增角色',
       mask: true,
       onOk: () => {
         // ref 就能获取组件的信息了
@@ -127,7 +127,7 @@ class UsersAccount extends React.Component {
               onSearch={this.onSearch.bind(this)}
               addNew={this.addNew.bind(this)}
               isAddUser={true}
-              title={'添加员工'}
+              title={'新增角色'}
             />
           </div>
           <div style={{ height: '500px' }}>
@@ -144,5 +144,5 @@ class UsersAccount extends React.Component {
     )
   }
 }
-export default connect()(UsersAccount)
+export default connect()(UsersRoles)
 // export default UsersAccount
