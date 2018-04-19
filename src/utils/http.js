@@ -70,12 +70,14 @@ const http = (url, type, config = {}) => {
   }
   type = type.toUpperCase()
   const extension = config.extension || {}
-  delete config.extension
-  const data = config.data || config || {}
   config.headers = Object.assign(config.headers || {}, {
     Authorize: sessionStorage.getItem('token')
   })
   const headers = config.headers || undefined
+  delete config.extension
+  delete config.headers
+  const data = config.data || config || {}
+  console.log(data, 'data')
   let ajaxConfig = {
     url: url,
     method: type,
