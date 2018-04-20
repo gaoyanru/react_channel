@@ -1,53 +1,22 @@
 import React from 'react'
-import { Card, Row, Col, Form, Input, Button, Table, Divider } from 'antd'
+import { Card, Col, Row } from 'antd'
 import { connect } from 'react-redux'
-import styles from '@/stylus/tableContent'
-import Modal from '@/components/common/modal'
+import styles from '@/stylus/serviceCard'
 import Search from '@/containers/Search'
-import CustomerInfo from '@/containers/service/customerInfo'
-import { fetchListAction } from '@/actions/usersAccount'
-const FormItem = Form.Item
+import { fetchListAction } from '@/actions/customerService'
+
 class CustomerService extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      pagination: {
-        current: 1,
-        pageSize: 10,
-        total: 15,
-        showSizeChanger: true,
-        showQuickJumper: true
-      }
-    }
     this.detail = this.detail.bind(this)
-    this.handleTableChange = this.handleTableChange.bind(this)
     console.log(this.props, 'props')
     // this.props.dispatch(fetchListAction())
-  }
-  handleTableChange (pagination) {
-    this.setState({
-      pagination: pagination
-    })
   }
   onSearch (res) {
     console.log(res)
   }
-  detail (record) {
-    const detailData = []
-    const modal = Modal.show({
-      content: (
-        <CustomerInfo/>
-      ),
-      title: '客户详情',
-      mask: true,
-      onOk: () => {
-        console.log('关闭弹框')
-        modal.hide()
-      },
-      onCancel: () => {
-        modal.hide()
-      }
-    })
+  detail () {
+    console.log('详情')
   }
   render () {
     const dataSource = [{
@@ -171,56 +140,33 @@ class CustomerService extends React.Component {
       Phone: '13521677472',
       Orders: '3'
     }]
-    const columns = [{
-      title: '公司名称',
-      dataIndex: 'CompanyName'
-    }, {
-      title: '所属城市',
-      dataIndex: 'CityName'
-    }, {
-      title: '直营/渠道',
-      dataIndex: 'Belong'
-    }, {
-      title: '联系人',
-      dataIndex: 'Contactor'
-    }, {
-      title: '联系方式',
-      dataIndex: 'Phone'
-    }, {
-      title: '订单数量',
-      dataIndex: 'Orders'
-    }, {
-      title: '操作',
-      render: (text, record) => {
-        return (
-          <span>
-            <a onClick={e => { this.detail(record) }}>详情</a>
-          </span>
-        )
-      }
-    }]
     return (
-      <Card bordered={false}>
-        <div className={styles.tableList}>
-          <div className={styles.tableListForm}>
-            <Search
-              paramKeys={[1, 2, 3]}
-              onSearch={this.onSearch.bind(this)}
-              isAddUser={false}
-            />
-          </div>
-          <div style={{ minHeight: '500px' }}>
-            <Table
-              rowKey={record => (record.Id)}
-              dataSource={dataSource}
-              columns={columns}
-              pagination={this.state.pagination}
-              onChange={this.handleTableChange}
-              bordered={true}
-            />
-          </div>
+      <div>
+        <div className={styles.searchList}>
+          <Search
+            paramKeys={[1, 2, 3]}
+            onSearch={this.onSearch.bind(this)}
+            isAddUser={false}
+          />
         </div>
-      </Card>
+        <div className={styles.cardList}>
+          <Row gutter={16} style={{ marginLeft: '0', marginRight: '0' }}>
+            {dataSource.map((item, index) => {
+              return (
+                <Col className={styles.card} key={item.Id} span={8}>
+                  <div>{item.CompanyName}</div>
+                  <div>{item.CityName}</div>
+                  <div>{item.Belong}</div>
+                  <div>{item.Contactor}</div>
+                  <div>{item.Phone}</div>
+                  <div>{item.Orders}</div>
+                </Col>
+              )
+            })}
+          </Row>
+        </div>
+      </div>
+
     )
   }
 }

@@ -32,8 +32,8 @@ class Main extends React.Component {
       RealName: 'momo.zxy'
     }
     const menuList = {
-      menuParent: '用户',
-      children: '账号'
+      menuParent: '客服',
+      children: '客户信息'
     }
     console.log(this.props.children, 'children')
     return (

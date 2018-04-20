@@ -26,9 +26,9 @@ class Search extends React.Component {
     e.preventDefault()
     this.props.addNew()
   }
-  handleFormReset () {
-    this.props.form.resetFields()
-  }
+  // handleFormReset () {
+  //   this.props.form.resetFields()
+  // }
   toggleForm () {
     const { paramKeys } = this.props
     this.setState({
@@ -54,26 +54,16 @@ class Search extends React.Component {
       <FormItem label="">
         {getFieldDecorator('filed[0]')(<Input placeholder="搜索用户名" />)}
       </FormItem>,
-      <FormItem label="状态">
-        {getFieldDecorator('filed[1]')(
-          <Select placeholder="请选择" style={{ width: '100%' }}>
-            <Select.Option value="0">关闭</Select.Option>
-            <Select.Option value="1">运行中</Select.Option>
-          </Select>
-        )}
+      <FormItem label="公司名称">
+        {getFieldDecorator('filed[1]')(<Input placeholder="公司名称" />)}
+      </FormItem>,
+      <FormItem label="联系方式">
+        {getFieldDecorator('filed[2]')(<Input placeholder="" />)}
+      </FormItem>,
+      <FormItem label="联系人">
+        {getFieldDecorator('filed[3]')(<Input placeholder="" />)}
       </FormItem>,
       <FormItem label="状态">
-        {getFieldDecorator('filed[2]')(
-          <Select placeholder="请选择" style={{ width: '100%' }}>
-            <Select.Option value="0">关闭</Select.Option>
-            <Select.Option value="1">运行中</Select.Option>
-          </Select>
-        )}
-      </FormItem>,
-      <FormItem label="规则编号">
-        {getFieldDecorator('filed[3]')(<Input placeholder="请输入" />)}
-      </FormItem>,
-      <FormItem label="使用状态">
         {getFieldDecorator('filed[4]')(
           <Select placeholder="请选择" style={{ width: '100%' }}>
             <Select.Option value="0">关闭</Select.Option>
@@ -81,11 +71,30 @@ class Search extends React.Component {
           </Select>
         )}
       </FormItem>,
+      <FormItem label="状态">
+        {getFieldDecorator('filed[5]')(
+          <Select placeholder="请选择" style={{ width: '100%' }}>
+            <Select.Option value="0">关闭</Select.Option>
+            <Select.Option value="1">运行中</Select.Option>
+          </Select>
+        )}
+      </FormItem>,
+      <FormItem label="规则编号">
+        {getFieldDecorator('filed[6]')(<Input placeholder="请输入" />)}
+      </FormItem>,
+      <FormItem label="使用状态">
+        {getFieldDecorator('filed[7]')(
+          <Select placeholder="请选择" style={{ width: '100%' }}>
+            <Select.Option value="0">关闭</Select.Option>
+            <Select.Option value="1">运行中</Select.Option>
+          </Select>
+        )}
+      </FormItem>,
       <FormItem label="年龄">
-        {getFieldDecorator('filed[5]')(<Input style={{ width: '100%' }} />)}
+        {getFieldDecorator('filed[8]')(<Input style={{ width: '100%' }} />)}
       </FormItem>,
       <FormItem label="地址">
-        {getFieldDecorator('filed[6]')(<Input placeholder="请输入" />)}
+        {getFieldDecorator('filed[9]')(<Input placeholder="请输入" />)}
       </FormItem>
     ]
     this.nodes = []
@@ -108,9 +117,6 @@ class Search extends React.Component {
               <span>
                 <Button type="primary" htmlType="submit">
                   查询
-                </Button>
-                <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset.bind(this)}>
-                  重置
                 </Button>
                 {this.props.isAddUser && <Button type="primary" style={{ marginLeft: 8 }} onClick={this.handeladdNew.bind(this)}>
                   {this.props.title}

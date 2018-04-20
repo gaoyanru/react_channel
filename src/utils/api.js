@@ -19,3 +19,6 @@ export const getAllDepartments = () => {
 export const fetchUsersAccount = (payload) => {
   return http('/api/users', payload)
 }
+export const fetchCustomerServiceList = (payload) => {
+  return http('/api/service', payload)
+}
