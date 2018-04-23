@@ -60,7 +60,7 @@ class Main extends React.Component {
             />
           </Header>
           <PageHeader menu={menuList}/>
-          <Content style={{ margin: '24px 24px 0', height: '100%' }}>
+          <Content style={{ height: '100%' }}>
             {this.props.children}
           </Content>
         </Layout>

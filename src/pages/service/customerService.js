@@ -19,7 +19,7 @@ class CustomerService extends React.Component {
   }
   goCustomerInfo () {
     console.log('详情')
-    this.props.history.push('/customer/detail')
+    this.props.history.push('/customerDetail')
   }
   render () {
     const dataSource = [{
@@ -27,124 +27,124 @@ class CustomerService extends React.Component {
       CompanyName: '北京爱康鼎科技有限公司',
       CityName: '北京市',
       Belong: '直营',
-      Contactor: '噼里啪',
-      Phone: '13521677472',
+      Connector: '噼里啪',
+      Mobile: '13521677472',
       Orders: '5'
     }, {
       Id: 2,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 3,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 4,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 5,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 6,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 7,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 8,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 9,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 10,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 11,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 12,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 13,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 14,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }, {
       Id: 15,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
       Belong: '渠道',
-      Contactor: '全时',
-      Phone: '13521677472',
+      Connector: '全时',
+      Mobile: '13521677472',
       Orders: '3'
     }]
     return (
-      <div>
+      <div style={{ margin: '24px 24px 0' }}>
         <div className={styles.searchList}>
           <Search
             paramKeys={[1, 2, 3]}
@@ -162,11 +162,11 @@ class CustomerService extends React.Component {
                   <Row>
                     <Col span={12}>
                       <label>联系人：</label>
-                      <span>{item.Contactor}</span>
+                      <span>{item.Connector}</span>
                     </Col>
                     <Col span={12}>
                       <label>联系方式：</label>
-                      <span>{item.Phone}</span>
+                      <span>{item.Mobile}</span>
                     </Col>
                   </Row>
                   <Row>

@@ -26,7 +26,7 @@ const basename = '/'
 const configs = [
   { path: '/', component: modules.Index, exact: true },
   { path: '/customer', component: modules.CustomerService },
-  { path: '/customer/detail', component: modules.CustomerDeatil },
+  { path: '/customerDetail', component: modules.CustomerDeatil },
   { path: '/usersAccount', component: modules.UsersAccount },
   { path: '/usersRoles', component: modules.UsersRoles },
   { path: '/usersAddStrategy', component: modules.UsersAddStrategy }
