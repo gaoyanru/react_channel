@@ -5,11 +5,11 @@ export default class CusDetail1 extends React.Component {
   render () {
     const item = this.props.data
     return (
-      <div className={styles['basic-info']}>
+      <div>
         {
           (+this.props.curKey === 1) &&
           <div>
-            <Row className={styles['mt20']}>
+            <Row className={styles['mt25']}>
               <Col span={8}>
                 <label>公司名称：</label>
                 <span>{item.CompanyName}</span>
@@ -19,7 +19,7 @@ export default class CusDetail1 extends React.Component {
                 <span>{item.CityName}</span>
               </Col>
             </Row>
-            <Row className={styles['mt20']}>
+            <Row className={styles['mt25']}>
               <Col span={8}>
                 <label>联系人：</label>
                 <span>{item.Contactor}</span>
@@ -33,7 +33,7 @@ export default class CusDetail1 extends React.Component {
                 <span>{item.SalesName}</span>
               </Col>
             </Row>
-            <Row className={styles['mt20']}>
+            <Row className={styles['mt25']}>
               <Col span={8}>
                 <label>纳税人类别：</label>
                 <span>{item.Category}</span>
@@ -47,8 +47,8 @@ export default class CusDetail1 extends React.Component {
         }
         {
           (+this.props.curKey === 2) &&
-          <div className={styles['basic-info']}>
-            <Row className={styles['mt20']}>
+          <div>
+            <Row className={styles['mt25']}>
               <Col span={8}>
                 <label>统一社会信息代码：</label>
                 <span>{item.RegNO}</span>
@@ -62,7 +62,7 @@ export default class CusDetail1 extends React.Component {
                 <span>{item.RegisterDate}</span>
               </Col>
             </Row>
-            <Row className={styles['mt20']}>
+            <Row className={styles['mt25']}>
               <Col span={8}>
                 <label>法人身份证：</label>
                 <span>{item.PersonCardID}</span>
@@ -76,7 +76,7 @@ export default class CusDetail1 extends React.Component {
                 <span>{item.RegisteredCapital}</span>
               </Col>
             </Row>
-            <Row className={styles['mt20']}>
+            <Row className={styles['mt25']}>
               <Col span={8}>
                 <label>营业期限：</label>
                 <span>{item.RegisterDate}到</span>
@@ -85,6 +85,37 @@ export default class CusDetail1 extends React.Component {
               <Col span={16}>
                 <label>经营范围：</label>
                 <span>{item.BusinessScope}</span>
+              </Col>
+            </Row>
+          </div>
+        }
+        {
+          (+this.props.curKey === 5) &&
+          <div>
+            <Row className={styles['mt25']}>
+              <Col span={12}>
+                <label>首报月：</label>
+                <span>{item.RegNO}</span>
+              </Col>
+              <Col span={12}>
+                <label>核算会计：</label>
+                <span>{item.LegalPerson}</span>
+              </Col>
+            </Row>
+            <Row className={styles['mt25']}>
+              <Col span={12}>
+                <label>运营会计：</label>
+                <span>{item.PersonCardID}</span>
+              </Col>
+              <Col span={12}>
+                <label>建账状态：</label>
+                <span>{item.Address}</span>
+              </Col>
+            </Row>
+            <Row className={styles['mt25']}>
+              <Col span={12}>
+                <label>账期：</label>
+                <span>{item.RegisterDate}</span>
               </Col>
             </Row>
           </div>
