@@ -33,7 +33,7 @@ class Main extends React.Component {
     }
     const menuList = {
       menuParent: '客服',
-      children: '客户信息'
+      children: '客户'
     }
     console.log(this.props.children, 'children')
     return (

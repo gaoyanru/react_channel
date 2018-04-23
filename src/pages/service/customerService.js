@@ -1,22 +1,25 @@
 import React from 'react'
-import { Card, Col, Row } from 'antd'
+import { Card, List, Row, Col } from 'antd'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import styles from '@/stylus/serviceCard'
 import Search from '@/containers/Search'
+import CustomerDetail from '@/pages/service/customerDetail'
 import { fetchListAction } from '@/actions/customerService'
 
 class CustomerService extends React.Component {
   constructor (props) {
     super(props)
-    this.detail = this.detail.bind(this)
+    this.goCustomerInfo = this.goCustomerInfo.bind(this)
     console.log(this.props, 'props')
     // this.props.dispatch(fetchListAction())
   }
   onSearch (res) {
     console.log(res)
   }
-  detail () {
+  goCustomerInfo () {
     console.log('详情')
+    this.props.history.push('/customer/detail')
   }
   render () {
     const dataSource = [{
@@ -150,20 +153,42 @@ class CustomerService extends React.Component {
           />
         </div>
         <div className={styles.cardList}>
-          <Row gutter={16} style={{ marginLeft: '0', marginRight: '0' }}>
-            {dataSource.map((item, index) => {
-              return (
-                <Col className={styles.card} key={item.Id} span={8}>
-                  <div>{item.CompanyName}</div>
-                  <div>{item.CityName}</div>
-                  <div>{item.Belong}</div>
-                  <div>{item.Contactor}</div>
-                  <div>{item.Phone}</div>
-                  <div>{item.Orders}</div>
-                </Col>
-              )
-            })}
-          </Row>
+          <List
+            grid={{ gutter: 16, xs: 1, sm: 1, md: 1, lg: 2, xl: 2, xxl: 3 }}
+            dataSource={dataSource}
+            renderItem={item => (
+              <List.Item key={item.Id}>
+                <Card title={item.CompanyName} className={styles['card-head']} onClick={this.goCustomerInfo}>
+                  <Row>
+                    <Col span={12}>
+                      <label>联系人：</label>
+                      <span>{item.Contactor}</span>
+                    </Col>
+                    <Col span={12}>
+                      <label>联系方式：</label>
+                      <span>{item.Phone}</span>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col span={12}>
+                      <label>所属城市：</label>
+                      <span>{item.CityName}</span>
+                    </Col>
+                    <Col span={12}>
+                      <label>直营/渠道：</label>
+                      <span>{item.Belong}</span>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col span={12}>
+                      <label>订单数量：</label>
+                      <span>{item.Orders}</span>
+                    </Col>
+                  </Row>
+                </Card>
+              </List.Item>
+            )}
+          />
         </div>
       </div>
 

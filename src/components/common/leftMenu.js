@@ -8,8 +8,8 @@ export default class LeftMenu extends React.Component {
       <Menu theme="dark" mode="inline">
         <SubMenu key="sub1" title={<span><Icon type="customer-service" /><span>客服</span></span>}>
           <Menu.Item key="1">
-            <Link to="/customerService">
-              <span>客户信息</span>
+            <Link to="/customer">
+              <span>客户</span>
             </Link>
           </Menu.Item>
         </SubMenu>
