@@ -21,14 +21,104 @@ export default class CustomerDetail extends React.Component {
     })
   }
   viewOrder (record) {
+    const OrderModalData = [
+      { ContractNo: 22354645646, MainItemName: '记账报税', ChildItemName: '一般纳税人', Amount: 22, ReceiveAmount: 33, RefundAmount: 33, Status: 1, Remark: 'eee ' },
+      { ContractNo: 22354645647, MainItemName: '记账报税', ChildItemName: '一般纳税人', Amount: 22, ReceiveAmount: 33, RefundAmount: 33, Status: 1, Remark: 'eee ' },
+      { ContractNo: 22354645648, MainItemName: '记账报税', ChildItemName: '一般纳税人', Amount: 22, ReceiveAmount: 33, RefundAmount: 33, Status: 1, Remark: 'eee ' }
+    ]
+    const orderModalcolumns = [{
+      title: '合同ID',
+      dataIndex: 'ContractNo'
+    }, {
+      title: '项目',
+      dataIndex: 'MainItemName'
+    }, {
+      title: '子项目',
+      dataIndex: 'ChildItemName'
+    }, {
+      title: '费用',
+      dataIndex: 'Amount'
+    }, {
+      title: '领用金额',
+      dataIndex: 'ReceiveAmount'
+    }, {
+      title: '退费金额',
+      dataIndex: 'RefundAmount'
+    }, {
+      title: '合同状态',
+      dataIndex: 'Status'
+    }, {
+      title: '备注',
+      dataIndex: 'Remark'
+    }]
     const modal = Modal.show({
-      content: (<div>aa</div>),
+      content: (
+        <Table
+          rowKey={record => (record.ContractNo)}
+          dataSource={OrderModalData}
+          columns={orderModalcolumns}
+          pagination={false}
+        />
+      ),
       title: '合同详情',
-      mask: true
+      mask: true,
+      width: 800,
+      okText: '',
+      cancelText: '',
+      onCancel: () => {
+        modal.hide()
+      },
+      onOk: () => {
+        modal.hide()
+      }
     })
   }
   viewChildTask (record) {
-
+    const ChildTaskData = [
+      { ContractNo: 222, TaskName: '银行缴纳罚款', OutWorkerName: '你哈是', StartTime: '2018-04-23T16:43:29', EndTime: '2018-04-23T16:43:29', Status: 1 },
+      { ContractNo: 223, TaskName: '银行缴纳罚款', OutWorkerName: '你哈是', StartTime: '2018-04-23T16:43:29', EndTime: '2018-04-23T16:43:29', Status: 1 },
+      { ContractNo: 224, TaskName: '银行缴纳罚款', OutWorkerName: '你哈是', StartTime: '2018-04-23T16:43:29', EndTime: '2018-04-23T16:43:29', Status: 1 }
+    ]
+    const ChildTaskcolumns = [{
+      title: '合同ID',
+      dataIndex: 'ContractNo'
+    }, {
+      title: '子任务名称',
+      dataIndex: 'TaskName'
+    }, {
+      title: '当前外勤人员',
+      dataIndex: 'OutWorkerName'
+    }, {
+      title: '开始时间',
+      dataIndex: 'StartTime'
+    }, {
+      title: '完成时间',
+      dataIndex: 'EndTime'
+    }, {
+      title: '状态',
+      dataIndex: 'Status'
+    }]
+    const modal = Modal.show({
+      content: (
+        <Table
+          rowKey={record => (record.ContractNo)}
+          dataSource={ChildTaskData}
+          columns={ChildTaskcolumns}
+          pagination={false}
+        />
+      ),
+      title: '子任务',
+      mask: true,
+      width: 800,
+      okText: '',
+      cancelText: '',
+      onCancel: () => {
+        modal.hide()
+      },
+      onOk: () => {
+        modal.hide()
+      }
+    })
   }
   render () {
     const tabData1 = {
@@ -120,8 +210,8 @@ export default class CustomerDetail extends React.Component {
     ]
     const tabData3 = [
       { Id: 3692, MainTaskName: '通办测试1', childTaskName: '银行缴纳罚款', MainTaskStatus: 1, OutWorkerStatus: 2, SubmitTaskTime: '2018-04-23T16:43:29' },
-      { Id: 3692, MainTaskName: '通办测试1', childTaskName: '银行缴纳罚款', MainTaskStatus: 1, OutWorkerStatus: 2, SubmitTaskTime: '2018-04-23T16:43:29' },
-      { Id: 3692, MainTaskName: '通办测试1', childTaskName: '银行缴纳罚款', MainTaskStatus: 1, OutWorkerStatus: 2, SubmitTaskTime: '2018-04-23T16:43:29' }
+      { Id: 3693, MainTaskName: '通办测试1', childTaskName: '银行缴纳罚款', MainTaskStatus: 1, OutWorkerStatus: 2, SubmitTaskTime: '2018-04-23T16:43:29' },
+      { Id: 3694, MainTaskName: '通办测试1', childTaskName: '银行缴纳罚款', MainTaskStatus: 1, OutWorkerStatus: 2, SubmitTaskTime: '2018-04-23T16:43:29' }
     ]
     return (
       <div className={styles['customer-detail']}>

@@ -114,7 +114,7 @@ export default class CusDetail1 extends React.Component {
             </Row>
             <Row className={styles['mt25']}>
               <Col span={12}>
-                <label>账期：</label>
+                <label>服务时间：</label>
                 <span>{item.RegisterDate}</span>
               </Col>
             </Row>
