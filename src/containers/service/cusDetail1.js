@@ -1,5 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'antd'
+import { fAddedValue, fInfoSource, fDate, fMonth } from '@/utils/filters'
 import styles from '@/stylus/serviceCard'
 export default class CusDetail1 extends React.Component {
   render () {
@@ -36,11 +37,11 @@ export default class CusDetail1 extends React.Component {
             <Row className={styles['mt25']}>
               <Col span={8}>
                 <label>纳税人类别：</label>
-                <span>{item.Category}</span>
+                <span>{fAddedValue(item.Category)}</span>
               </Col>
               <Col span={8}>
                 <label>信息来源：</label>
-                <span>{item.InfoSource}</span>
+                <span>{fInfoSource(item.InfoSource)}</span>
               </Col>
             </Row>
           </div>
@@ -59,7 +60,7 @@ export default class CusDetail1 extends React.Component {
               </Col>
               <Col span={8}>
                 <label>成立日期：</label>
-                <span>{item.RegisterDate}</span>
+                <span>{fDate(item.RegisterDate)}</span>
               </Col>
             </Row>
             <Row className={styles['mt25']}>
@@ -79,8 +80,8 @@ export default class CusDetail1 extends React.Component {
             <Row className={styles['mt25']}>
               <Col span={8}>
                 <label>营业期限：</label>
-                <span>{item.RegisterDate}到</span>
-                <span>{item.BusnissDeadline}</span>
+                <span>{fDate(item.RegisterDate)}至</span>
+                <span>{fDate(item.BusnissDeadline)}</span>
               </Col>
               <Col span={16}>
                 <label>经营范围：</label>
@@ -95,7 +96,7 @@ export default class CusDetail1 extends React.Component {
             <Row className={styles['mt25']}>
               <Col span={12}>
                 <label>首报月：</label>
-                <span>{item.RegNO}</span>
+                <span>{fMonth(item.serviceStartDate)}</span>
               </Col>
               <Col span={12}>
                 <label>核算会计：</label>
@@ -105,7 +106,7 @@ export default class CusDetail1 extends React.Component {
             <Row className={styles['mt25']}>
               <Col span={12}>
                 <label>运营会计：</label>
-                <span>{item.PersonCardID}</span>
+                <span>{item.AccountantName}</span>
               </Col>
               <Col span={12}>
                 <label>建账状态：</label>
@@ -115,7 +116,7 @@ export default class CusDetail1 extends React.Component {
             <Row className={styles['mt25']}>
               <Col span={12}>
                 <label>服务时间：</label>
-                <span>{item.RegisterDate}</span>
+                <span>{fDate(item.RegisterDate)}</span>
               </Col>
             </Row>
           </div>

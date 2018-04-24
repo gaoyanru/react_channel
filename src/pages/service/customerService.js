@@ -6,6 +6,7 @@ import styles from '@/stylus/serviceCard'
 import Search from '@/containers/Search'
 import CustomerDetail from '@/pages/service/customerDetail'
 import { fetchListAction } from '@/actions/customerService'
+import { fOrganization } from '@/utils/filters'
 
 class CustomerService extends React.Component {
   constructor (props) {
@@ -26,7 +27,7 @@ class CustomerService extends React.Component {
       Id: 1,
       CompanyName: '北京爱康鼎科技有限公司',
       CityName: '北京市',
-      Belong: '直营',
+      Belong: 1,
       Connector: '噼里啪',
       Mobile: '13521677472',
       Orders: '5'
@@ -34,7 +35,7 @@ class CustomerService extends React.Component {
       Id: 2,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
-      Belong: '渠道',
+      Belong: 2,
       Connector: '全时',
       Mobile: '13521677472',
       Orders: '3'
@@ -42,7 +43,7 @@ class CustomerService extends React.Component {
       Id: 3,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
-      Belong: '渠道',
+      Belong: 1,
       Connector: '全时',
       Mobile: '13521677472',
       Orders: '3'
@@ -50,7 +51,7 @@ class CustomerService extends React.Component {
       Id: 4,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
-      Belong: '渠道',
+      Belong: 2,
       Connector: '全时',
       Mobile: '13521677472',
       Orders: '3'
@@ -58,87 +59,7 @@ class CustomerService extends React.Component {
       Id: 5,
       CompanyName: '南京全时科技有限公司',
       CityName: '南京市',
-      Belong: '渠道',
-      Connector: '全时',
-      Mobile: '13521677472',
-      Orders: '3'
-    }, {
-      Id: 6,
-      CompanyName: '南京全时科技有限公司',
-      CityName: '南京市',
-      Belong: '渠道',
-      Connector: '全时',
-      Mobile: '13521677472',
-      Orders: '3'
-    }, {
-      Id: 7,
-      CompanyName: '南京全时科技有限公司',
-      CityName: '南京市',
-      Belong: '渠道',
-      Connector: '全时',
-      Mobile: '13521677472',
-      Orders: '3'
-    }, {
-      Id: 8,
-      CompanyName: '南京全时科技有限公司',
-      CityName: '南京市',
-      Belong: '渠道',
-      Connector: '全时',
-      Mobile: '13521677472',
-      Orders: '3'
-    }, {
-      Id: 9,
-      CompanyName: '南京全时科技有限公司',
-      CityName: '南京市',
-      Belong: '渠道',
-      Connector: '全时',
-      Mobile: '13521677472',
-      Orders: '3'
-    }, {
-      Id: 10,
-      CompanyName: '南京全时科技有限公司',
-      CityName: '南京市',
-      Belong: '渠道',
-      Connector: '全时',
-      Mobile: '13521677472',
-      Orders: '3'
-    }, {
-      Id: 11,
-      CompanyName: '南京全时科技有限公司',
-      CityName: '南京市',
-      Belong: '渠道',
-      Connector: '全时',
-      Mobile: '13521677472',
-      Orders: '3'
-    }, {
-      Id: 12,
-      CompanyName: '南京全时科技有限公司',
-      CityName: '南京市',
-      Belong: '渠道',
-      Connector: '全时',
-      Mobile: '13521677472',
-      Orders: '3'
-    }, {
-      Id: 13,
-      CompanyName: '南京全时科技有限公司',
-      CityName: '南京市',
-      Belong: '渠道',
-      Connector: '全时',
-      Mobile: '13521677472',
-      Orders: '3'
-    }, {
-      Id: 14,
-      CompanyName: '南京全时科技有限公司',
-      CityName: '南京市',
-      Belong: '渠道',
-      Connector: '全时',
-      Mobile: '13521677472',
-      Orders: '3'
-    }, {
-      Id: 15,
-      CompanyName: '南京全时科技有限公司',
-      CityName: '南京市',
-      Belong: '渠道',
+      Belong: 1,
       Connector: '全时',
       Mobile: '13521677472',
       Orders: '3'
@@ -176,7 +97,7 @@ class CustomerService extends React.Component {
                     </Col>
                     <Col span={12}>
                       <label>直营/渠道：</label>
-                      <span>{item.Belong}</span>
+                      <span>{fOrganization(item.Belong)}</span>
                     </Col>
                   </Row>
                   <Row>

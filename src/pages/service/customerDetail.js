@@ -1,5 +1,6 @@
 import React from 'react'
 import { Tabs, Table } from 'antd'
+import { fDate, fMainTaskStatus, fSubTaskStatus, fOutworkStatus } from '@/utils/filters'
 import styles from '@/stylus/serviceCard'
 import CusDetail1 from '@/containers/service/cusDetail1'
 import Modal from '@/components/common/modal'
@@ -90,13 +91,16 @@ export default class CustomerDetail extends React.Component {
       dataIndex: 'OutWorkerName'
     }, {
       title: '开始时间',
-      dataIndex: 'StartTime'
+      dataIndex: 'StartTime',
+      render: val => fDate(val)
     }, {
       title: '完成时间',
-      dataIndex: 'EndTime'
+      dataIndex: 'EndTime',
+      render: val => fDate(val)
     }, {
       title: '状态',
-      dataIndex: 'Status'
+      dataIndex: 'Status',
+      render: val => fOutworkStatus(val)
     }]
     const modal = Modal.show({
       content: (
@@ -127,8 +131,10 @@ export default class CustomerDetail extends React.Component {
       Contactor: '俞东浩',
       Mobile: '13386143761',
       SalesName: '何吉敏',
-      Category: '小规模1',
-      InfoSource: '天眼查1国家信息公示网2特殊公司3',
+      Category: 1,
+      serviceStartDate: '2015-08-20T00:00:00',
+      AccountantName: 'bubu',
+      InfoSource: 2,
       RegNO: '911101053552537441',
       LegalPerson: '法人名',
       RegisterDate: '2015-08-20T00:00:00',
@@ -161,7 +167,8 @@ export default class CustomerDetail extends React.Component {
       dataIndex: 'OrderSalesName'
     }, {
       title: '签定日期',
-      dataIndex: 'ContractDate'
+      dataIndex: 'ContractDate',
+      render: val => fDate(val)
     }, {
       title: '备注',
       dataIndex: 'Remark'
@@ -186,13 +193,16 @@ export default class CustomerDetail extends React.Component {
       dataIndex: 'childTaskName'
     }, {
       title: '主任务状态',
-      dataIndex: 'MainTaskStatus'
+      dataIndex: 'MainTaskStatus',
+      render: val => fMainTaskStatus(val)
     }, {
       title: '当前子任务状态',
-      dataIndex: 'OutWorkerStatus'
+      dataIndex: 'OutWorkerStatus',
+      render: val => fSubTaskStatus(val)
     }, {
       title: '任务提交时间',
-      dataIndex: 'SubmitTaskTime'
+      dataIndex: 'SubmitTaskTime',
+      render: val => fDate(val)
     }, {
       title: '操作',
       render: (text, record) => {

@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import styles from '@/stylus/tableContent'
 import Modal from '@/components/common/modal'
 import Search from '@/containers/Search'
-import CustomerInfo from '@/containers/service/customerInfo'
 import { fetchListAction } from '@/actions/usersAccount'
 const FormItem = Form.Item
 class CustomerService extends React.Component {
@@ -36,7 +35,7 @@ class CustomerService extends React.Component {
     const detailData = []
     const modal = Modal.show({
       content: (
-        <CustomerInfo/>
+        <div>aaaa</div>
       ),
       title: '客户详情',
       mask: true,
