@@ -41,7 +41,7 @@ class Login extends React.Component {
   render () {
     if (this.state.isLogin) {
       return (
-        <Redirect to={'/'} />
+        <Redirect to={'/customer'} />
       )
     }
     const { getFieldDecorator } = this.props.form

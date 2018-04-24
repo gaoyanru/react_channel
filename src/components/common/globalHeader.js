@@ -1,10 +1,11 @@
 import React from 'react'
 import styles from '@/stylus/main'
 import { Menu, Icon, Dropdown, Avatar } from 'antd'
+import { withRouter } from 'react-router'
 import { Link, Redirect } from 'react-router-dom'
 import { logout } from '@/utils/api'
 
-export default class GlobalHeader extends React.Component {
+class GlobalHeader extends React.Component {
   constructor (props) {
     super(props)
     this.toggle = this.toggle.bind(this)
@@ -13,14 +14,18 @@ export default class GlobalHeader extends React.Component {
     const { collapsed, onCollapse } = this.props
     onCollapse(!collapsed)
   }
-  onMenuClick () {
-    logout().then((res) => {
-      if (res.status) {
-        return (
-          <Redirect to={'/login'} />
-        )
-      }
-    })
+  onMenuClick ({ key }) {
+    console.log(key)
+    if (key === 'logout') {
+      this.props.history.push('/login')
+    }
+    // logout().then((res) => {
+    //   if (res.status) {
+    //     return (
+    //       this.props.history.push('/login')
+    //     )
+    //   }
+    // })
   }
   render () {
     const {
@@ -30,10 +35,8 @@ export default class GlobalHeader extends React.Component {
     const menu = (
       <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick.bind(this)}>
         <Menu.Item>
-          <Link to="/main/user_my">
-            <Icon type="user" />
-            个人中心
-          </Link>
+          <Icon type="user" />
+          个人中心
         </Menu.Item>
         <Menu.Item key="logout">
           <Icon type="logout" />
@@ -64,3 +67,4 @@ export default class GlobalHeader extends React.Component {
     )
   }
 }
+export default withRouter(GlobalHeader)
