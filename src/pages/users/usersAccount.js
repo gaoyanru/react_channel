@@ -51,7 +51,7 @@ class UsersAccount extends React.Component {
           isNew={true}
         />
       ),
-      title: '新增员工',
+      footer: null,
       mask: true,
       onOk: () => {
         // ref 就能获取组件的信息了
