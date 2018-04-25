@@ -8,6 +8,7 @@ class PageHeader extends React.Component {
         <Breadcrumb className={styles.mt_16}>
           <Breadcrumb.Item>{this.props.menu.menuParent}</Breadcrumb.Item>
           <Breadcrumb.Item>{this.props.menu.children}</Breadcrumb.Item>
+          <Breadcrumb.Item>{this.props.menu.child}</Breadcrumb.Item>
         </Breadcrumb>
       </div>
     )

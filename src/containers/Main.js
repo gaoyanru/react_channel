@@ -12,7 +12,8 @@ class Main extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      collapsed: false
+      collapsed: false,
+      isShowThirdMenu: false
     }
     this.handleMenuCollapse = this.handleMenuCollapse.bind(this)
   }
@@ -33,16 +34,20 @@ class Main extends React.Component {
     }
     const menuList = {
       menuParent: '客服',
-      children: '客户'
+      children: '客户',
+      child: ''
     }
-    console.log(this.props.children, 'children')
+    if (this.props.location.pathname === '/customerDetail') {
+      menuList.child = '详情'
+    }
+    console.log(this.props.location.pathname, this.props.location.pathname === '/customerDetail', 'props')
     return (
       <Layout>
         <Sider
           trigger={null}
           collapsible
           collapsed={this.state.collapsed}
-          width={243}
+          width={180}
           className={styles.sider}
         >
           <div className={styles.logo}>
@@ -59,7 +64,7 @@ class Main extends React.Component {
               onCollapse={this.handleMenuCollapse}
             />
           </Header>
-          <PageHeader menu={menuList}/>
+          <PageHeader menu={menuList} isShowThirdMenu={this.state.isShowThirdMenu}/>
           <Content style={{ height: '100%' }}>
             {this.props.children}
           </Content>
