@@ -72,6 +72,7 @@ export default class CustomerDetail extends React.Component {
       width: 800,
       okText: '',
       cancelText: '',
+      footer: null,
       onCancel: () => {
         modal.hide()
       }
@@ -119,10 +120,8 @@ export default class CustomerDetail extends React.Component {
       width: 800,
       okText: '',
       cancelText: '',
+      footer: null,
       onCancel: () => {
-        modal.hide()
-      },
-      onOk: () => {
         modal.hide()
       }
     })
