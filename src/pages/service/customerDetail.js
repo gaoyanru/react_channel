@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, Table } from 'antd'
+import { Tabs, Table, Button } from 'antd'
 import { fDate, fMainTaskStatus, fSubTaskStatus, fOutworkStatus, fContractStatus } from '@/utils/filters'
 import styles from '@/stylus/serviceCard'
 import CusDetail1 from '@/containers/service/cusDetail1'
@@ -14,12 +14,17 @@ export default class CustomerDetail extends React.Component {
     this.callback = this.callback.bind(this)
     this.viewOrder = this.viewOrder.bind(this)
     this.viewChildTask = this.viewChildTask.bind(this)
+    this.back = this.back.bind(this)
   }
   callback (key) {
     console.log(key)
     this.setState({
       curKey: key
     })
+  }
+  back () {
+    console.log(this.props, 'this.props')
+    this.props.history.go(-1)
   }
   viewOrder (record) {
     const OrderModalData = [
@@ -67,6 +72,7 @@ export default class CustomerDetail extends React.Component {
       width: 800,
       okText: '',
       cancelText: '',
+      footer: null,
       onCancel: () => {
         modal.hide()
       },
@@ -226,7 +232,12 @@ export default class CustomerDetail extends React.Component {
     ]
     return (
       <div className={styles['customer-detail']}>
-        <h4 className={styles.title}>北京爱康鼎科技有限公司</h4>
+        <div style={{position: 'relative'}}>
+          <h4 className={styles.title}>北京爱康鼎科技有限公司</h4>
+          <Button className={styles.btn} type="primary" onClick={this.back}>
+            返回
+          </Button>
+        </div>
         <div className={styles.con} style={{ margin: '24px 24px 0' }}>
           <Tabs defaultActiveKey="1" onChange={this.callback}>
             <TabPane className={styles['basic-info']} tab="客户基本信息" key="1">
