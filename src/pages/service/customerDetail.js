@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs, Table } from 'antd'
-import { fDate, fMainTaskStatus, fSubTaskStatus, fOutworkStatus } from '@/utils/filters'
+import { fDate, fMainTaskStatus, fSubTaskStatus, fOutworkStatus, fContractStatus } from '@/utils/filters'
 import styles from '@/stylus/serviceCard'
 import CusDetail1 from '@/containers/service/cusDetail1'
 import Modal from '@/components/common/modal'
@@ -47,7 +47,8 @@ export default class CustomerDetail extends React.Component {
       dataIndex: 'RefundAmount'
     }, {
       title: '合同状态',
-      dataIndex: 'Status'
+      dataIndex: 'Status',
+      render: val => fContractStatus(val)
     }, {
       title: '备注',
       dataIndex: 'Remark'

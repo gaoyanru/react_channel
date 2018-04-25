@@ -104,3 +104,24 @@ export const fOutworkStatus = (val) => {
   }
   return str
 }
+export const fContractStatus = (val) => {
+  var str = ''
+  switch (+val) {
+  case 1:
+    str = '正常'
+    break
+  case 2:
+    str = '结束'
+    break
+  case 3:
+    str = '正常中止'
+    break
+  case 4:
+    str = '作废中止'
+    break
+  case 5:
+    str = '变更中止'
+    break
+  }
+  return str
+}

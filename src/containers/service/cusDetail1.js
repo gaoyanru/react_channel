@@ -69,20 +69,22 @@ export default class CusDetail1 extends React.Component {
                 <span>{item.PersonCardID}</span>
               </Col>
               <Col span={8}>
-                <label>公司住所：</label>
-                <span>{item.Address}</span>
-              </Col>
-              <Col span={8}>
                 <label>注册资金：</label>
                 <span>{item.RegisteredCapital}</span>
               </Col>
-            </Row>
-            <Row className={styles['mt25']}>
               <Col span={8}>
                 <label>营业期限：</label>
                 <span>{fDate(item.RegisterDate)}至</span>
                 <span>{fDate(item.BusnissDeadline)}</span>
               </Col>
+            </Row>
+            <Row className={styles['mt25']}>
+              <Col span={16}>
+                <label>公司住所：</label>
+                <span>{item.Address}</span>
+              </Col>
+            </Row>
+            <Row className={styles['mt25']}>
               <Col span={16}>
                 <label>经营范围：</label>
                 <span>{item.BusinessScope}</span>
@@ -99,8 +101,8 @@ export default class CusDetail1 extends React.Component {
                 <span>{fMonth(item.serviceStartDate)}</span>
               </Col>
               <Col span={12}>
-                <label>核算会计：</label>
-                <span>{item.LegalPerson}</span>
+                <label>建账状态：</label>
+                <span>{item.Address}</span>
               </Col>
             </Row>
             <Row className={styles['mt25']}>
@@ -109,8 +111,8 @@ export default class CusDetail1 extends React.Component {
                 <span>{item.AccountantName}</span>
               </Col>
               <Col span={12}>
-                <label>建账状态：</label>
-                <span>{item.Address}</span>
+                <label>核算会计：</label>
+                <span>{item.LegalPerson}</span>
               </Col>
             </Row>
             <Row className={styles['mt25']}>
