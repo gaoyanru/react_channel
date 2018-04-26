@@ -98,27 +98,28 @@ export default class CusDetail1 extends React.Component {
             <Row className={styles['mt25']}>
               <Col span={12}>
                 <label>首报月：</label>
-                <span>{fMonth(item.serviceStartDate)}</span>
+                <span>{fMonth(item.businessDate)}</span>
               </Col>
               <Col span={12}>
                 <label>建账状态：</label>
-                <span>{item.Address}</span>
+                <span>{item.businessStatus}</span>
               </Col>
             </Row>
             <Row className={styles['mt25']}>
               <Col span={12}>
                 <label>运营会计：</label>
-                <span>{item.AccountantName}</span>
+                <span>{item.businessUserName}</span>
               </Col>
               <Col span={12}>
                 <label>核算会计：</label>
-                <span>{item.LegalPerson}</span>
+                <span>{item.accountUserName}</span>
               </Col>
             </Row>
             <Row className={styles['mt25']}>
               <Col span={12}>
                 <label>服务时间：</label>
-                <span>{fDate(item.RegisterDate)}</span>
+                <span>{fDate(item.startDate)}至</span>
+                <span>{fDate(item.endDate)}</span>
               </Col>
             </Row>
           </div>

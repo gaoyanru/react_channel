@@ -136,7 +136,7 @@ export default class CustomerDetail extends React.Component {
       Category: 1,
       serviceStartDate: '2015-08-20T00:00:00',
       AccountantName: 'bubu',
-      InfoSource: 2,
+      InfoSource: 0,
       RegNO: '911101053552537441',
       LegalPerson: '法人名',
       RegisterDate: '2015-08-20T00:00:00',
@@ -145,6 +145,18 @@ export default class CustomerDetail extends React.Component {
       RegisteredCapital: '100000万',
       BusnissDeadline: '2035-08-19T00:00:00',
       BusinessScope: '餐饮管理；企业管理咨询；经济贸易咨询；组织文化艺术交流活动（不含演出）；技术推广服务；销售日用品。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）'
+    }
+    const tabData4 = {
+      businessStatus: '处理中',
+      businessDate: '2017-02-28',
+      startDate: '2017-02-28',
+      endDate: '2018-04-30',
+      orders: [{
+        startDate: '2017-02-28',
+        endDate: '2018-04-30'
+      }],
+      accountUserName: '核算',
+      businessUserName: '主办'
     }
     const columns1 = [{
       title: '订单ID',
@@ -265,7 +277,7 @@ export default class CustomerDetail extends React.Component {
             </TabPane>
             <TabPane className={styles['basic-info']} tab="会计做账信息" key="5">
               <CusDetail1
-                data={tabData1}
+                data={tabData4}
                 curKey={this.state.curKey}
               />
             </TabPane>

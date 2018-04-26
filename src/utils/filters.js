@@ -25,6 +25,9 @@ export const fAddedValue = (val) => {
 export const fInfoSource = (val) => {
   var str = ''
   switch (+val) {
+  case 0:
+    str = '其他'
+    break
   case 1:
     str = '天眼查'
     break
