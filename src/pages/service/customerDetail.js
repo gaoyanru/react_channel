@@ -149,8 +149,6 @@ export default class CustomerDetail extends React.Component {
     const tabData4 = {
       businessStatus: '处理中',
       businessDate: '2017-02-28',
-      startDate: '2017-02-28',
-      endDate: '2018-04-30',
       orders: [{
         startDate: '2017-02-28',
         endDate: '2018-04-30'

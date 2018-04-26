@@ -116,11 +116,17 @@ export default class CusDetail1 extends React.Component {
               </Col>
             </Row>
             <Row className={styles['mt25']}>
-              <Col span={12}>
-                <label>服务时间：</label>
-                <span>{fDate(item.startDate)}至</span>
-                <span>{fDate(item.endDate)}</span>
-              </Col>
+              {
+                item.orders && item.orders.map((d, index) => {
+                  return (
+                    <Col span={12} key={index}>
+                      <label>服务时间：</label>
+                      <span>{fDate(d.startDate)}至</span>
+                      <span>{fDate(d.endDate)}</span>
+                    </Col>
+                  )
+                })
+              }
             </Row>
           </div>
         }
